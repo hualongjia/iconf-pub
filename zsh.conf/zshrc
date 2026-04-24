@@ -140,9 +140,9 @@ plugins=(
     z 
     extract 
     zsh-autosuggestions 
+    zsh-syntax-highlighting
     docker 
     docker-compose 
-    docker-machine 
 )
 
 

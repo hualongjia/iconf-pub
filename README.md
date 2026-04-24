@@ -12,7 +12,7 @@
 
 Debian
 ```shell
-apt install nvim screen zsh git
+apt install neovim screen zsh git
 ```
 
 FreeBSD 
