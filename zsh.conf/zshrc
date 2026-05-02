@@ -200,91 +200,11 @@ alias tail100='tail -n100 -f '
 alias vizsh='vim ~/.zshrc'
 alias sozsh='source ~/.zshrc'
 
-# gradle
-alias gradleinitjava='gradle init --type java-library'
-alias gradlecleanidea='gradle cleanIdea'
-
-# host
-alias mypi='ssh xx@xxx'
-
-
-## proxy oepn and close
-# git 
-alias proxyopengit='git config --global http.proxy http://127.0.0.1:9999; git config --global https.proxy https://127.0.0.1:9999'
-alias proxyclosegit='git config --global --unset http.proxy; git config --global --unset https.proxy'
-
-# shell
-alias proxyopenshell='export ALL_PROXY=socks5://127.0.0.1:9999'
-alias proxycloseshell='export ALL_PROXY='
-
-# npm
-alias npmproxyopen='export npm_config_proxy=http://127.0.0.1:9999'
-alias npmproxyclose='export npm_config_proxy='
-
-## tmux
-#alias tmuxt='tmux attach -t '
-#alias tmuxl='tmux ls'
-#alias tmuxn='tmux new-session -s '
-
-## linux 
-#
-alias cpuinfo='cat /proc/cpuinfo| grep "processor"'
-
-## docker 
-# Linux docker 需要 sudo 
-# dcp nginx:/home/nginx/a.html .
-alias dcp='sudo docker cp '
-alias dps='sudo docker ps '
-alias dpsa='sudo docker ps -a'
-alias dimgs='sudo docker images'
-alias dpid='sudo docker inspect --format {{.State.Pid}} '
-alias dtail='sudo docker logs --tail 1000 -f'
-alias dexec='dexec() { if [ $# != 1 ] ; then echo "USAGE: $0 docker_name_or_pid" ; else ; sudo docker exec -it "$1" /bin/bash ; fi } ; dexec'
-## thanks for https://gist.github.com/spalladino/6d981f7b33f6e0afe6bb
-alias dmysqldump='dmysqldump() { if [ $# != 4 ] ; then echo "USAGE: $0 docker_name_or_pid mysql_username mysql_password mysql_dbname" ; else ; sudo docker exec "$1" /usr/bin/mysqldump -u$2 -p$3 "$4" ; fi }; dmysqldump '
-alias dmysqlimport='dmysqlimport() { if [ $# != 5 ] ; then echo "USAGE: $0 docker_name_or_pid mysql_username mysql_password mysql_dbname mysql_dbdump_file" ; else ; cat "$5" | sudo docker exec -i "$1" /usr/bin/mysql -u$2 -p$3 "$4" ; fi }; dmysqlimport'
-alias dmysql='dmysql() { if [ $# != 3 ] ; then echo "USAGE: $0 docker_name_or_pid mysql_username mysql_password " ; else ; sudo docker exec -it "$1" /usr/bin/mysql -u$2 -p$3 ; fi };dmysql '
-
-## K3S ###
-alias k3sns='sudo k3s kubectl get namespaces'
-alias k3snode='sudo k3s kubectl get node'
-alias k3spod='k3spod() { if (( $# > 1 )) ; then echo "USAGE: $0 namespace " ; elif (( $# == 0 )); then k3s kubectl get pod -A ; else ; k3s kubectl -n "$1" get pod; fi };k3spod'
-alias k3sservice='k3sservice() { if (( $# > 1 )) ; then echo "USAGE: $0 namespace " ; elif (( $# == 0 )); then k3s kubectl get service -A ;else ; k3s kubectl -n "$1" get service; fi };k3sservice'
-alias k3slogs='k3slogs() { if [ $# != 2 ] ; then echo "USAGE: $0 namespace pod_name " ; else ; k3s kubectl -n "$1" logs --tail=20 -f "$2" ; fi };k3slogs '
-#alias k3slogs='k3slogs() { if [ $# != 2 ] ; then echo "USAGE: $0 namespace pod_name " ; else ; k3s kubectl -n "$1" logs -f "$2" ; fi };k3slogs '
-alias k3srep='k3srep() { if [ $# != 2 ] ; then echo "USAGE: $0 namespace pod_name " ; else ; k3s kubectl get pod "$2" -n "%1" -o yaml | kubectl replace --force -f -  "$1" logs -f "$2" ; fi };k3srep '
-
-#utils
-alias netstatls='f() { sudo netstat -tulpn };f '
-
-alias eshealth='f() { curl $1/_cat/health };f '
-alias espetty='f() { curl $1/\?pretty };f '
-
-## java
-alias javapverbose='javap -verbose '
-
 #ping
 alias ping1='ping 192.168.1.1'
 
-#utils
-alias netstatls='f() { sudo netstat -tulpn };f '
-
-## java
-alias javapverbose='javap -verbose '
-
-#ping 
-alias ping1='ping 192.168.1.1'
-
 #扩展名绑定
-#alias -s conf=vim
-#alias -s json=vim
-#alias -s html=vim
-#alias -s md=vim
-
-#tmux_init() { }
-# 判断是否已有开启的tmux会话，没有则开启
-#if which tmux 2>&1 >/dev/null; then
-#    test -z "$TMUX" && (tmux attach || tmux_init)
-#fi
-
-
+alias -s conf=vim
+alias -s json=vim
+alias -s html=vim
+alias -s md=vim
